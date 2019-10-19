@@ -1,0 +1,125 @@
+link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/mobiscroll.2.13.2.css")
+section#main-content
+  section.wrapper
+    .row
+      .col-md-1
+      .col-md-10
+          section.panel
+            .panel-body
+                h2 会议室预订
+                form(method="post",action="/meeting/meetingBook")
+                    table
+                        tbody
+                            tr
+                                td
+                                    label 会议标题：
+                                td
+                                    input.form-control(name="title",type="text", placeholder="请输入会议标题")
+                            tr
+                                td
+                                    label 会议内容：
+                                td
+                                    textarea.form-control(name="concent",rows="5",placeholder="请输入会议内容")
+                            tr
+                                td
+                                    label 开始时间：
+                                td
+                                    .content
+                                        .settings(style="display:none;")
+                                            select#demo(name="demo")
+                                                option(value="date") 日期
+                                        input#start.demo-test-date.demo-test-datetime.demo-test-time.demo-test-credit.form-control(name="start",placeholder="请点击选择开始时间")
+                            tr
+                                td
+                                    label 会议时间：
+                                td
+                                    select#time.form-control(name="time")
+                                        each item in MeetTime
+                                            each val, key in item
+                                              option(value='#{val}') #{val} 分钟
+                            tr
+                                td
+                                    label 结束时间：
+                                td
+                                    input#end.form-control(name="end",type="text",disabled="",placeholder="无需填写")
+                            tr
+                                td
+                                    label 会议室：
+                                td
+                                    select#room.form-control(name="room")
+                                        each rooms in MeetRoom
+                                            option(value='#{rooms.meetroom_id}') #{rooms.meetroom_name}
+                            tr
+                                td
+                                    label 会议类型：
+                                td
+                                    select#style.form-control(name="room")
+                                        each styles in MeetStyle
+                                            each val, key in styles
+                                                option(value='#{val}') #{val}
+                            tr
+                                td
+                                    label 指定其他管理员：
+                                td
+                                    select#admin.form-control(name="admin")
+                                        each admin in MeetAdmin
+                                            option(value='#{admin.us_name}') #{admin.us_name}
+                            tr
+                                td(align="center")
+                                    button.btn.btn-default(type="button") 预订会议
+
+
+
+
+script(type="text/javascript", src="/javascripts/gqsmeet/mobiscroll.2.13.2.js")
+script(type="text/javascript").
+    $(function () {
+    var curr = new Date().getFullYear();
+    var opt={};
+    opt.date = {preset : 'date'};
+    opt.datetime = {preset : 'datetime'};
+    opt.time = {preset : 'time'};
+
+    opt.default = {
+        theme: 'android-holo light', //皮肤样式
+    display: 'modal', //显示方式
+    mode: 'scroller', //日期选择模式
+    dateFormat: 'yyyy-mm-dd',
+    lang: 'zh',
+    showNow: true,
+    nowText: "今天",
+    stepMinute: 5,
+    startYear: curr - 0, //开始年份
+    endYear: curr + 0 //结束年份
+    };
+    $('.settings').bind('change', function() {
+        var demo = 'datetime';
+        if (!demo.match(/select/i)) {
+            $('.demo-test-' + demo).val('');
+    }
+    $('.demo-test-' + demo).scroller('destroy').scroller($.extend(opt['datetime'], opt['default']));
+    $('.demo').hide();
+    $('.demo-' + demo).show();
+    });
+    $('#demo').trigger('change');
+    });
+    $("#time").change(function () {
+        if(document.getElementById("start").value==""){
+            return;
+        }else{
+            var start = new Date(document.getElementById("start").value).getTime();
+            var time = parseInt(document.getElementById("time").value) * 60 * 1000;
+            var end = new Date(start + time);
+            var year = end.getFullYear();
+            var month = end.getMonth() + 1;
+            month = month > 9 ? month : "0" + month;
+            var date = end.getDate();
+            date = date > 9 ? date : "0" + date;
+            var hour = end.getHours();
+            hour = hour > 9 ? hour : "0" + hour;
+            var minute = end.getMinutes();
+            minute = minute > 9 ? minute : "0" + minute;
+            document.getElementById("end").value = year + "-" + month + "-" + date + " " + hour + ":" + minute;
+        }
+    });
+

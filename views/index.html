@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>甘其食会议管理平台</title>
+    <link type="image/x-icon" href="/images/login/baobao.ico" rel="icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/htmleaf.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/thumbnail-gallery.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/baguetteBox.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/jquery.restable.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index_css/css/font.css">
+    <style type="text/css">
+      .header-navigation {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+          background-color: #333;
+          opacity:0.5;
+          filter:alpha(opacity=50);
+          text-align: center;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+      /*导航菜单向上滑动*/
+      .slideUp {
+          -webkit-transform: translateY(-100px);
+          transform: translateY(-100px);
+          transition: transform .5s ease-out;
+      
+      }
+      /*导航菜单向下滑动*/
+      .slideDown {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          transition: transform .5s ease-out;
+      }
+    </style>
+  </head>
+  <body style="background-image:url(/images/index/desk.jpg)" class="bg_con">
+    <div>
+      <header id="header" class="header-navigation">
+        <nav><span id="nowDateTimeSpan" style="float:left;margin-left: 15px;font-size:16px"></span><span style="float:right;padding-right:25px;"><a href="/login" title="Login" style="margin-right:15px;text-decoration:none" class="a_one"><span style="font-size:16px">登录</span></a><a href="/register" title="Register" style="margin-right:15px;text-decoration:none" class="a_one"><span style="font-size:16px">注册</span></a><a href="/advice" title="Advice" style="margin-right:15px;text-decoration:none" class="a_one"><span style="font-size:16px">意见箱</span></a></span></nav>
+      </header>
+    </div>
+    <div style="margin:100px auto auto auto;"><img src="/images/index/MRBS.png" width="434px" height="491px"></div>
+    <div style="margin:2em 0 2em;"><a href="#meet" class="btn-repo btn btn-lg">今日会议<i style="margin-left:5px"><span class="icon icon-briefcase"></span></i></a><a href="#meetroom" class="btn-repo btn btn-lg">会议室<i style="margin-left:5px"><span class="icon icon-film"></span></i></a></div>
+    <div id="meet" class="div_width0">
+      <div align="center" class="div_in0">
+        <table id="mytable">
+          <thead>
+            <tr>
+              <td>表格头1</td>
+              <td>表格头2</td>
+              <td>表格头3</td>
+              <td>表格头4</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>单元格1</td>
+              <td>单元格2</td>
+              <td>单元格3</td>
+              <td>单元格4</td>
+            </tr>
+            <tr>
+              <td>单元格5</td>
+              <td>单元格6</td>
+              <td>单元格7</td>
+              <td>单元格8</td>
+            </tr>
+            <tr>
+              <td>单元格9</td>
+              <td>单元格10</td>
+              <td>单元格11</td>
+              <td>单元格12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="div_width1">
+      <div class="div_in1"></div>
+    </div>
+    <div class="div_width2">
+      <div class="container gallery-container">
+        <h1 id="meetroom"><font color="black" style="font-size:30px">接待室/会议室一览</font></h1>
+      </div>
+      <p style="color:black;" class="page-description text-center">Anteroom/Boardroom To Show</p>
+      <div class="tz-gallery">
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail"><a href="/images/index/anteroom1.jpg" class="lightbox"><img src="/images/index/anteroom1.jpg" alt="Park"></a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail"><a href="/images/index/anteroom2.jpg" class="lightbox"><img src="/images/index/anteroom2.jpg" alt="Bridge"></a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail"><a href="/images/index/boardroom3_1.jpg" class="lightbox"><img src="/images/index/boardroom3_1.jpg" alt="Tunnel"></a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail"><a href="/images/index/boardroom3_2.jpg" class="lightbox"><img src="/images/index/boardroom3_2.jpg" alt="Coast"></a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail"><a href="/images/c/1.jpg" class="lightbox"><img src="/images/c/1.jpg" alt="Rails"></a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail"><a href="/images/c/2.jpg" class="lightbox"><img src="/images/c/2.jpg" alt="Traffic"></a>
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="div_width3"></div>
+    <div class="div_width4"></div>
+    <script type="text/javascript" src="/javascripts/gqsmeet/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/javascripts/index_js/daytime.js"></script>
+    <script type="text/javascript" src="/javascripts/index_js/baguetteBox.min.js"></script>
+    <script type="text/javascript" src="/javascripts/index_js/jquery.restable.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+          $('#mytable').ReStable();
+          $('#mytable').ReStable({
+              rowHeaders: true,
+              maxWidth: 480,
+              keepHtml: false
+          });
+      });
+    </script>
+    <script type="text/javascript">baguetteBox.run('.tz-gallery');</script>
+    <script type="text/javascript">
+      var new_scroll_position = 0;
+      var last_scroll_position;
+      var header = document.getElementById("header");
+      window.addEventListener('scroll', function (e) {
+          last_scroll_position = window.scrollY;
+          // 向下滚动
+          if (new_scroll_position < last_scroll_position && last_scroll_position > 80) {
+              header.classList.remove("slideDown");
+              header.classList.add("slideUp");
+              // 向上滚动
+          } else if (new_scroll_position > last_scroll_position) {
+              header.classList.remove("slideUp");
+              header.classList.add("slideDown");
+          }
+          new_scroll_position = last_scroll_position;
+      });
+    </script>
+  </body>
+</html>

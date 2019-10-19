@@ -1,0 +1,131 @@
+include _meta
+body
+    nav.breadcrumb
+        i.Hui-iconfont 
+        |  首页
+        span.c-gray.en >&nbsp;
+           =page.column.oneMenu
+        span.c-gray.en >&nbsp;
+           =page.column.twoMenu
+        a.btn.btn-success.radius.r(style="line-height:1.6em;margin-top:3px", href="javascript:location.replace(location.href);", title="刷新")
+            i.Hui-iconfont 
+    .page-container
+        .cl.pd-5.bg-1.bk-gray
+            span.l
+                a.btn.btn-primary.radius(href="javascript:;", onclick="admin_roleGroup_add('添加权限组','/power/add','500','250')")
+                    i.Hui-iconfont 
+                    |  添加
+                | &nbsp;
+                a.btn.btn-primary.radius(href="javascript:;", onclick="admin_roleGroup_edit('角色编辑','/power/edit','500','250')")
+                    i.Hui-iconfont 
+                    |  编辑
+                | &nbsp;
+                a.btn.btn-danger.radius(href="javascript:;", onclick="admin_roleGroup_del(this,'1')")
+                    i.Hui-iconfont 
+                    |  删除
+        table#table.table.table-border.table-bordered.table-hover.table-bg.table-sort
+            thead
+                tr
+                    th(scope="col", colspan="7")
+                       =page.column.twoMenu
+                tr.text-c
+                    th
+                    th 权限组名称
+                    th 描述
+                    th 创建者
+                    th 创建时间
+                    th 更新者
+                    th 更新时间
+    // _footer 作为公共模版分离出去
+    include _footer
+    // 请在下方写此页面业务相关的脚本
+    script(type="text/javascript", src="/javascripts/lib/datatables/1.10.0/jquery.dataTables.min.js")
+    script(type="text/javascript").
+        var table = $('#table').DataTable({
+            "ajax": "/power/getPower",
+            "deferRender": true, //延迟渲染
+            "columns": [
+                {
+                    "class": 'details-control',
+                    "orderable": false,
+                    "defaultContent": "<input name='power' type='radio'/>"
+                },
+                {"data": "group_name"},
+                {"data": "group_desc"},
+                {"data": "creater"},
+                {"data": "create_day"},
+                {"data": "updater"},
+                {"data": "updater_day"},
+
+            ],
+            "lengthMenu": [[5, 10], [5, 10]],
+            "order": [[1, 'desc']]
+        });
+        // Add event listener for opening and closing details
+        $('#table tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
+
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            }
+            else {
+                // Open this row
+                row.child(format(row.data())).show();
+                tr.addClass('shown');
+            }
+        });
+        /*管理员-角色-添加*/
+        function admin_roleGroup_add(title,url,w,h){
+            layer_show(title,url,w,h);
+            table.ajax.reload();
+        }
+        /*管理员-角色-编辑*/
+        function admin_roleGroup_edit(title, url, id, w, h) {
+            var n = $("input[name='power']").length;
+            var a = 0;
+            for (var i = 0; i < n; i++) {
+                if ($("input[name='power']")[i].checked == true) {
+                    a++;
+                }
+            }
+            if (a > 0) {
+                layer_show(title, url, w, h);
+            } else {
+                layer.confirm('请先选择！');
+            }
+        }
+        /*管理员-角色-删除*/
+        function admin_roleGroup_del(obj,id){
+            var n = $("input[name='power']").length;
+            var a = 0;
+            for (var i = 0; i < n; i++) {
+                if ($("input[name='power']")[i].checked == true) {
+                    a++;
+                }
+            }
+            if (a > 0) {
+                layer.confirm('删除须谨慎，确认要删除吗？', function (index) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '',
+                        dataType: 'json',
+                        success: function (data) {
+                            $(obj).parents("tr").remove();
+                            layer.msg('已删除!', {icon: 1, time: 1000});
+                        },
+                        error: function (data) {
+                            console.log(data.msg);
+                        },
+                    });
+                });
+            } else {
+                layer.confirm('请先选择！');
+            }
+        }
+        //点击某一行，选中单选框
+        function rowClick(obj) {
+            $(obj).find(":radio").prop("checked",true);
+        }

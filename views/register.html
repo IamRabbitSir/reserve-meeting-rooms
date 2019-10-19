@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>注册</title>
+    <link type="image/x-icon" href="/images/login/baobao.ico" rel="icon">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/register_css/register.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/register_css/build.css">
+    <style type="text/css">
+      a {
+        text-decoration: none;
+        color: #a6e1ec;
+      }
+      a:focus, a:hover {
+        color: #23527c;
+      }
+      .bg_con {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-position: center 0;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          -webkit-background-size: cover; /* 兼容Webkit内核浏览器如Chrome和Safari */
+          -o-background-size: cover; /* 兼容Opera */
+          zoom: 1;
+      }
+      .header-navigation {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+          background-color: #333;
+          opacity:0.5;
+          filter:alpha(opacity=50);
+          text-align: center;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+      .div_input {
+          font-size:18px;color:white;background:transparent;border:0;position:absolute;
+      }
+    </style>
+  </head>
+  <body style="background-image:url(/images/login/homebg.png)" class="bg_con">
+    <div>
+      <header id="header" class="header-navigation">
+        <nav><span id="nowDateTimeSpan" style="float:left;margin-left: 15px;"></span><span style="float:right;padding-right:25px;"><a href="/index" title="index" style="margin-right:15px;text-decoration:none"><span>首页</span></a><a href="/login" title="Login" style="margin-right:15px;text-decoration:none"><span>登录</span></a><a href="/register" title="Register" style="margin-right:15px;text-decoration:none"><span>注册</span></a><a href="/advice" title="Advice" style="margin-right:15px;text-decoration:none"><span>意见箱</span></a></span></nav>
+      </header>
+    </div>
+    <div class="ly-div15">
+      <div class="ly-div15-1">
+        <div class="ly-div15-c">
+          <p class="eorr">&nbsp;</p>
+          <form action="/uers/register" method="post">
+            <table>
+              <tr>
+                <td>
+                  <input id="us_account" type="text" value="用户名" maxlength="15" class="account1">
+                </td>
+                <td>
+                  <input id="err1" readonly="true" type="text" maxlength="15" style="top:41px;" class="div_input">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="us_pwd" type="text" value="密码" maxlength="20" class="pwd1">
+                  <input id="us_pwd1" type="password" maxlength="20" style="display: none,margin-top: 20px;" class="pwd1">
+                </td>
+                <td>
+                  <input id="err2" readonly="true" type="text" maxlength="15" style="top:88px;" class="div_input">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="us_pwd2" type="text" value="确认密码" maxlength="20" class="pwd2">
+                  <input id="us_pwd3" type="password" maxlength="20" style="display: none,margin-top: 20px;" class="pwd2">
+                </td>
+                <td>
+                  <input id="err3" readonly="true" type="text" maxlength="15" style="top:140px;" class="div_input">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="us_name" type="text" value="姓名" maxlength="20" class="name1">
+                </td>
+              </tr>
+              <div class="sex1">
+                <div style="float:left;padding-left:60px;" class="radio">
+                  <input id="inlineRadio1" type="radio" value="男" name="us_name" checked="">
+                  <label for="inlineRadio1"> Male</label>
+                </div>
+                <div style="float:left;padding-left:110px;" class="radio radio-success">
+                  <input id="inlineRadio2" type="radio" value="女" name="us_name">
+                  <label for="inlineRadio2"> Woman</label>
+                </div>
+              </div>
+              <tr>
+                <td>
+                  <input id="us_phone" type="text" value="联系电话" maxlength="20" class="phone1">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="us_email" type="text" value="电子邮箱" maxlength="25" class="email1">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="us_depart" type="text" value="部门" maxlength="15" class="position1">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input id="us_position" type="text" value="职位" maxlength="15" class="position1">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="button" value="注 册" class="btn">
+                </td>
+              </tr>
+            </table>
+          </form>
+          <!-- <input type="checkbox" id="myCheckBox"  class="ace"/>-->
+        </div>
+        <p style="position:fixed; bottom:40px;color:#FFF; margin-left:53px; font-size:14px;"><a target="_blank" href="http://www.ganqishi.com">甘其食官网: www.ganqishi.com</a></p>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="text/javascript" src="/javascripts/gqsmeet/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/javascripts/register.js"></script>

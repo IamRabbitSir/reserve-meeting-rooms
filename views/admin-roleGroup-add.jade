@@ -1,0 +1,46 @@
+include _meta
+body
+    article.page-container
+        form#form-admin-roleGroup-add.form.form-horizontal(action="/power/addPower", method="post")
+            .row.cl
+                label.form-label.col-xs-4.col-sm-3
+                    span.c-red *
+                    | 权限组名称：
+                .formControls.col-xs-8.col-sm-9
+                    input#roleName.input-text(type="text", value="", placeholder="", name="group_name")
+            .row.cl
+                label.form-label.col-xs-4.col-sm-3 *权限组描述：
+                .formControls.col-xs-8.col-sm-9
+                    input.input-text(type="text", value="", placeholder="", name="group_desc")
+                    input(type="hidden",value="")
+            .row.cl
+                .col-xs-8.col-sm-9.col-xs-offset-4.col-sm-offset-3
+                    button#admin-role-save.btn.btn-success.radius(type="submit", name="admin-role-save")
+                        i.icon-ok
+                        |  确定
+    include _footer
+    script(type="text/javascript", src="/javascripts/lib/jquery.validation/1.14.0/jquery.validate.js")
+    script(type="text/javascript", src="/javascripts/lib/jquery.validation/1.14.0/validate-methods.js")
+    script(type="text/javascript", src="/javascripts/lib/jquery.validation/1.14.0/messages_zh.js")
+    script(type="text/javascript").
+        $(function () {
+            $("#form-admin-roleGroup-add").validate({
+                rules: {
+                    group_name: {
+                        required: true,
+                    },
+                    group_desc: {
+                        required: true,
+                    },
+                },
+                onkeyup: false,
+                focusCleanup: true,
+                success: "valid",
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit();
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                }
+            });
+        });
+    // /请在上方写此页面业务相关的脚本

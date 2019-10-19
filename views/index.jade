@@ -1,0 +1,180 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title 甘其食会议管理平台
+        link(type='image/x-icon', href='/images/login/baobao.ico', rel='icon')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/normalize.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/htmleaf.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/thumbnail-gallery.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/baguetteBox.min.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/jquery.restable.min.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/font.css')
+        style(type="text/css").
+            .header-navigation {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                background-color: #333;
+                opacity:0.5;
+                filter:alpha(opacity=50);
+                text-align: center;
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            }
+            /*导航菜单向上滑动*/
+            .slideUp {
+                -webkit-transform: translateY(-100px);
+                transform: translateY(-100px);
+                transition: transform .5s ease-out;
+
+            }
+            /*导航菜单向下滑动*/
+            .slideDown {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                transition: transform .5s ease-out;
+            }
+    body.bg_con(style='background-image:url(/images/index/desk.jpg)')
+      div
+        header#header.header-navigation
+          nav
+            span#nowDateTimeSpan(style="float:left;margin-left: 15px;font-size:16px")
+            span(style="float:right;padding-right:25px;")
+              a.a_one(href="/login", title="Login", style="margin-right:15px;text-decoration:none")
+                span(style="font-size:16px") 登录
+              a.a_one(href="/register", title="Register", style="margin-right:15px;text-decoration:none")
+                span(style="font-size:16px") 注册
+              a.a_one(href="/advice", title="Advice", style="margin-right:15px;text-decoration:none")
+                span(style="font-size:16px") 意见箱
+      div(style="margin:100px auto auto auto;")
+            img(src="/images/index/MRBS.png",width="434px",height="491px")
+         div(style="margin:2em 0 2em;")
+            a.btn-repo.btn.btn-lg(href="#meet")
+               | 今日会议
+               i(style="margin-left:5px")
+                  span.icon.icon-briefcase
+            a.btn-repo.btn.btn-lg(href="#meetroom")
+               | 会议室
+               i(style="margin-left:5px")
+                  span.icon.icon-film
+        div.div_width0#meet
+         div.div_in0(align="center")
+            table#mytable
+              thead
+                  tr
+                      td 表格头1
+                      td 表格头2
+                      td 表格头3
+                      td 表格头4
+              tbody
+                  tr
+                      td 单元格1
+                      td 单元格2
+                      td 单元格3
+                      td 单元格4
+                  tr
+                      td 单元格5
+                      td 单元格6
+                      td 单元格7
+                      td 单元格8
+                  tr
+                      td 单元格9
+                      td 单元格10
+                      td 单元格11
+                      td 单元格12
+      .div_width1
+          .div_in1
+      .div_width2
+            .container.gallery-container
+              h1#meetroom
+                 font(color="black",style="font-size:30px") 接待室/会议室一览
+            p.page-description.text-center(style="color:black;") Anteroom/Boardroom To Show
+            .tz-gallery
+              .row
+                .col-sm-6.col-md-4
+                  .thumbnail
+                    a.lightbox(href="/images/index/anteroom1.jpg")
+                      img(src="/images/index/anteroom1.jpg", alt="Park")
+                    .caption
+                      h3 Thumbnail label
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                  .thumbnail
+                    a.lightbox(href="/images/index/anteroom2.jpg")
+                      img(src="/images/index/anteroom2.jpg", alt="Bridge")
+                    .caption
+                      h3 Thumbnail label
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                  .thumbnail
+                    a.lightbox(href="/images/index/boardroom3_1.jpg")
+                      img(src="/images/index/boardroom3_1.jpg", alt="Tunnel")
+                    .caption
+                      h3 Thumbnail label
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                  .thumbnail
+                     a.lightbox(href="/images/index/boardroom3_2.jpg")
+                       img(src="/images/index/boardroom3_2.jpg", alt="Coast")
+                     .caption
+                       h3 Thumbnail label
+                       p
+                         | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                  .thumbnail
+                    a.lightbox(href="/images/c/1.jpg")
+                      img(src="/images/c/1.jpg", alt="Rails")
+                    .caption
+                      h3 Thumbnail label
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                  .thumbnail
+                    a.lightbox(href="/images/c/2.jpg")
+                      img(src="/images/c/2.jpg", alt="Traffic")
+                    .caption
+                      h3 Thumbnail label
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      .div_width3
+      .div_width4
+
+      script(type='text/javascript', src='/javascripts/gqsmeet/jquery-2.1.4.min.js')
+      script(type='text/javascript', src='/javascripts/index_js/daytime.js')
+      script(type='text/javascript', src='/javascripts/index_js/baguetteBox.min.js')
+      script(type='text/javascript', src='/javascripts/index_js/jquery.restable.min.js')
+      script(type="text/javascript").
+          $(function () {
+              $('#mytable').ReStable();
+              $('#mytable').ReStable({
+                  rowHeaders: true,
+                  maxWidth: 480,
+                  keepHtml: false
+              });
+          });
+      script(type="text/javascript").
+        baguetteBox.run('.tz-gallery');
+      script(type="text/javascript").
+        var new_scroll_position = 0;
+        var last_scroll_position;
+        var header = document.getElementById("header");
+        window.addEventListener('scroll', function (e) {
+            last_scroll_position = window.scrollY;
+            // 向下滚动
+            if (new_scroll_position < last_scroll_position && last_scroll_position > 80) {
+                header.classList.remove("slideDown");
+                header.classList.add("slideUp");
+                // 向上滚动
+            } else if (new_scroll_position > last_scroll_position) {
+                header.classList.remove("slideUp");
+                header.classList.add("slideDown");
+            }
+            new_scroll_position = last_scroll_position;
+        });

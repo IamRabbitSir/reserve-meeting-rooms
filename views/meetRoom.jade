@@ -1,0 +1,21 @@
+section#main-content
+    section.wrapper
+        .row
+            .col-md-1
+            .col-md-10
+                section.panel
+                    .panel-body
+                        h2 会议室查看
+                        table.table.table-hover
+                          thead
+                            tr
+                                th 会议室编号
+                                th 会议室名称
+                                th 会议室地址
+                                th 容纳人数
+                                th 备注
+                          tbody
+                            each item in MeetAll
+                                tr
+                                each val, key in item
+                                    td #{val}

@@ -1,0 +1,82 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title 登录
+    link(type='image/x-icon', href='/images/login/baobao.ico', rel='icon')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/login.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/sweetalert.css')
+    style(type="text/css").
+      a {
+          text-decoration: none;
+          color: #a6e1ec;
+      }
+      a:focus,a:hover{
+          color:#23527c;
+      }
+      .bg_con {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-position: center 0;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          -webkit-background-size: cover; /* 兼容Webkit内核浏览器如Chrome和Safari */
+          -o-background-size: cover; /* 兼容Opera */
+          zoom: 1;
+      }
+      .header-navigation {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+          background-color: #333;
+          opacity: 0.5;
+          filter: alpha(opacity=50);
+          text-align: center;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+    script(type='text/javascript').
+      var basePath = '';
+      function changeCheckbox() {
+          var mylabel = document.getElementById('formyCheckBox');
+          if (mylabel.innerHTML == "√")
+              mylabel.innerHTML = "";
+          else
+              mylabel.innerHTML = "√";
+      }
+  body.bg_con(style='background-image:url(/images/login/homebg.png);margin:0px;')
+    div
+      header#header.header-navigation
+          nav
+              span#nowDateTimeSpan(style="float:left;margin-left: 15px;")
+              span(style="float:right;padding-right:25px;")
+                  a(href="/index", title="index", style="margin-right:15px;text-decoration:none")
+                      span 首页
+                  a(href="/login", title="Login", style="margin-right:15px;text-decoration:none")
+                      span 登录
+                  a(href="/advice", title="Advice", style="margin-right:15px;text-decoration:none")
+                      span 意见箱
+    .ly-div15
+      .ly-div15-1
+        .ly-div15-c
+          p.eorr &nbsp;
+          form
+            input.css_userName(type='text', value='用户名', maxlength='15')
+            input#mima.css_password(type='text', value='密码', maxlength='20')
+            input#pwd.css_password2(type='password', maxlength='20', style='display: none;margin-top: 20px;')
+            input.btn(type='button', value='登 录')
+            label#formyCheckBox.label_ace(for='modeCheckBox', onclick='changeCheckbox()')
+            span.lbl &#x8BB0;&#x4F4F;&#x5BC6;&#x7801;
+          // <input type="checkbox" id="myCheckBox"  class="ace"/>
+        p(style='position:fixed; bottom:40px;color:#FFF; margin-left:53px; font-size:14px;')
+          a(target='_blank', href='http://www.ganqishi.com') 甘其食官网: www.ganqishi.com
+
+    script(type='text/javascript', src='/javascripts/gqsmeet/jquery-2.1.4.min.js')
+    script(type='text/javascript', src='/javascripts/jquery.cookie.js')
+    script(type='text/javascript', src='/javascripts/login.js')
+    script(type='text/javascript', src='/javascripts/sweetalert.min.js')

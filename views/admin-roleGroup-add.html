@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/H-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/H-ui.admin.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/css/iconfont.min.css">
+    <link id="skin" rel="stylesheet" type="text/css" href="/stylesheets/css/skin/skin.css">
+  </head>
+</html>
+<body>
+  <article class="page-container">
+    <form id="form-admin-roleGroup-add" action="/power/addPower" method="post" class="form form-horizontal">
+      <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限组名称：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+          <input id="roleName" type="text" value="" placeholder="" name="group_name" class="input-text">
+        </div>
+      </div>
+      <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">*权限组描述：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+          <input type="text" value="" placeholder="" name="group_desc" class="input-text">
+          <input type="hidden" value="">
+        </div>
+      </div>
+      <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+          <button id="admin-role-save" type="submit" name="admin-role-save" class="btn btn-success radius"><i class="icon-ok"></i> 确定</button>
+        </div>
+      </div>
+    </form>
+  </article>
+  <script type="text/javascript" src="/javascripts/gqsmeet/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/gqsmeet/layer/layer.js"></script>
+  <script type="text/javascript" src="/javascripts/gqsmeet/h-ui/H-ui.js"></script>
+  <script type="text/javascript" src="/javascripts/gqsmeet/h-ui/H-ui.admin.js"></script>
+  <script type="text/javascript" src="/javascripts/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+  <script type="text/javascript" src="/javascripts/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+  <script type="text/javascript" src="/javascripts/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+  <script type="text/javascript">
+    $(function () {
+        $("#form-admin-roleGroup-add").validate({
+            rules: {
+                group_name: {
+                    required: true,
+                },
+                group_desc: {
+                    required: true,
+                },
+            },
+            onkeyup: false,
+            focusCleanup: true,
+            success: "valid",
+            submitHandler: function (form) {
+                $(form).ajaxSubmit();
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+            }
+        });
+    });
+  </script>
+  <!-- /请在上方写此页面业务相关的脚本-->
+</body>

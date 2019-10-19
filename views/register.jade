@@ -1,0 +1,127 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title 注册
+    link(type='image/x-icon', href='/images/login/baobao.ico', rel='icon')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/register_css/register.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/register_css/build.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/sweetalert.css')
+    style(type="text/css").
+      a {
+        text-decoration: none;
+        color: #a6e1ec;
+      }
+      a:focus, a:hover {
+        color: #23527c;
+      }
+      body{ -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;}
+      .bg_con {
+          top: 0;
+          left: 0;
+          height: 100%;
+          background-position: center 0;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          -webkit-background-size: cover; /* 兼容Webkit内核浏览器如Chrome和Safari */
+          -o-background-size: cover; /* 兼容Opera */
+          zoom: 1;
+      }
+      .header-navigation {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+          background-color: #333;
+          opacity:0.5;
+          filter:alpha(opacity=50);
+          text-align: center;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+      .div_input {
+          font-size:18px;color:white;background:transparent;border:0;position:absolute;
+      }
+    script(type='text/javascript').
+      var basePath = '';
+  body.bg_con(style='background-image:url(/images/login/homebg.png);margin:0px;')
+    div
+      header#header.header-navigation
+          nav
+              span#nowDateTimeSpan(style="float:left;margin-left: 15px;")
+              span(style="float:right;padding-right:25px;")
+                  a(href="/index", title="index", style="margin-right:15px;text-decoration:none")
+                      span 首页
+                  a(href="/login", title="Login", style="margin-right:15px;text-decoration:none")
+                      span 登录
+                  a(href="/register", title="Register", style="margin-right:15px;text-decoration:none")
+                      span 注册
+                  a(href="/advice", title="Advice", style="margin-right:15px;text-decoration:none")
+                      span 意见箱
+    .ly-div15
+      .ly-div15-1
+        .ly-div15-c
+          p.eorr &nbsp;
+          form(action='/uers/register', method='post')
+            table
+              tr
+                td
+                  input#us_account.account1(type='text', value='用户名', maxlength='15')
+                td
+                  input#err1.div_input(readonly='true',type='text',style="top:41px;")
+                  input#err1_info.div_input(readonly='true',type='text',style="top:41px;margin-left:15px")
+              tr
+                td
+                  input#us_pwd.pwd1(type='text', value='密码', maxlength='20')
+                  input#us_pwd1.pwd1(type='password', maxlength='20',hidden="hidden" ,style='display:none;')
+                td
+                  input#err2.div_input(readonly='true',type='text',style="top:88px;")
+                  input#err2_info.div_input(readonly='true',type='text',style="top:88px;margin-left:15px")
+              tr
+                td
+                  input#us_pwd2.pwd2(type='text', value='确认密码', maxlength='20')
+                  input#us_pwd3.pwd2(type='password', maxlength='20',hidden="hidden" ,style='display:none;')
+                td
+                  input#err3.div_input(readonly='true',type='text',style="top:140px")
+                  input#err3_info.div_input(readonly='true',type='text',style="top:140px;margin-left:15px")
+              tr
+                td
+                  input#us_name.name1(type='text',value='姓名', maxlength='20')
+                td
+                  input#err4.div_input(readonly='true',type='text',style="top:195px;")
+                  input#err4_info.div_input(readonly='true',type='text',style="top:195px;margin-left:15px")
+              div.sex1
+                div.radio(style='float:left;padding-left:60px;')
+                  input#inlineRadio1(type='radio', value='男', name='us_name', checked='')
+                  label(for='inlineRadio1')  Male
+                div.radio.radio-success(style="float:left;padding-left:110px;")
+                  input#inlineRadio2(type='radio', value='女', name='us_name')
+                  label(for='inlineRadio2')  Woman
+              tr
+                td
+                  input#us_phone.phone1(type='text',value='联系电话', maxlength='20')
+              tr
+                td
+                  input#us_email.email1(type='text', value='电子邮箱', maxlength='25')
+              tr
+                td
+                    select#department.department1(style="width:320px")
+                        each department in Department
+                           option.color(value='#{department.team_id}') #{department.team_name}
+              tr
+                td
+                  input#us_position.position1(type='text', value='职位', maxlength='15')
+                td
+                  input#err5.div_input(readonly='true',type='text',style="top:451px;")
+                  input#err5_info.div_input(readonly='true',type='text',style="top:451px;margin-left:15px")
+              tr
+                td
+                  input.btn(type='button', value='注 册')
+          // <input type="checkbox" id="myCheckBox"  class="ace"/>
+        p(style='position:fixed; bottom:40px;color:#FFF; margin-left:53px; font-size:14px;')
+          a(target='_blank', href='http://www.ganqishi.com') 甘其食官网: www.ganqishi.com
+script(type='text/javascript', src='/javascripts/gqsmeet/jquery-2.1.4.min.js')
+script(type='text/javascript', src='/javascripts/sweetalert.min.js')
+script(type='text/javascript', src='/javascripts/register.js')
+

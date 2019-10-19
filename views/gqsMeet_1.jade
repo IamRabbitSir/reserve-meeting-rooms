@@ -1,0 +1,104 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        link(rel="icon", href="/images/login/baobao.ico", type="image/x-icon")
+        title 甘其食 - Meeting Room Booking System
+        link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/bootstrap-stripped.css")
+        link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/bootstrap-changes.css")
+        link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/bootstrap-additions.css")
+        link(rel='stylesheet', type='text/css', href='/stylesheets/index_css/css/font.css')
+        link(href="/stylesheets/gqsmeet_css/style.css", rel="stylesheet")
+        link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/content-style.css")
+        link(href="/stylesheets/gqsmeet_css/style-responsive.css", rel="stylesheet")
+        link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/monokai-sublime.css")
+        link(rel="stylesheet", type="text/css", href="/stylesheets/gqsmeet_css/bootstrap.min.css")
+
+    body
+        section#container
+            header.header.black-bg
+                .toggle-nav
+                    i.icon.icon-menu
+                       img(src="/images/gqsmeet/meet-logo.png", style="height: 40px;")
+                       span(style="font-size: small; text-transform: none;") v1.0
+                .top-nav.notification-row
+                    span(style="color:white;padding-right: 15px;") #{session.user.us_name} ,
+                        a(href="/users/logout") 注销
+                #top_menu.nav.title-row
+                    h1.nav.top-menu
+            aside
+                #sidebar.nav-collapse
+                    ul.sidebar-menu
+                        li
+                            a(href="/meet/gqsMeet")
+                                i.icon.icon-home
+                                span 首页
+                        li.sub-menu
+                            a(href="javascript:;")
+                                i.icon.icon-library
+                                span 会议室管理
+                                span.menu-arrow.fa.fa-angle-right
+                            ul.sub
+                                li
+                                    a(href="/meet/gqsMeet/meetRoom") 会议室查看
+                                li
+                                    a(href="") 未开功能
+                        li.sub-menu
+                            a(href="javascript:;")
+                                i.icon.icon-books
+                                span 会议室预订管理
+                                span.menu-arrow.fa.fa-angle-right
+                            ul.sub
+                                li
+                                    a(href="/meet/gqsMeet/meetBook") 会议室预订
+                                li
+                                    a(href="") 未开功能
+                        li.sub-menu
+                            a(href="javascript:;")
+                                i.icon.icon-file-text2
+                                span 会议管理
+                                span.menu-arrow.fa.fa-angle-right
+                            ul.sub
+                                li
+                                    a(href="/meeting/dayMeetings") 当日会议
+                                li
+                                    a(href="/meet/gqsMeet/weeklyMeetings") 当周会议
+                                li
+                                    a(href="/meet/gqsMeet/monthlyMeetings") 当月会议
+                        li.sub-menu
+                            a(href="javascript:;")
+                                i.icon.icon-quill
+                                span 用户管理
+                                span.menu-arrow.fa.fa-angle-right
+                            ul.sub
+                                li
+                                    a(href="/users/myinfo") 个人信息
+                                li
+                                    a(href="/users/password") 密码修改
+                                li
+                                    a(href="") 未开功能
+
+
+        case case_name
+            when "meetRoom"
+                include meetRoom
+            when "meetBook"
+                include meetBook
+            when "dayMeetings"
+                include dayMeetings
+            when "weeklyMeetings"
+                include weeklyMeetings
+            when "monthlyMeetings"
+                include monthlyMeetings
+            when "myinfo"
+                include myinfo
+            when "password"
+                include password
+            default
+                include default
+        script(type="text/javascript", src="/javascripts/gqsmeet/jquery.scrollTo.min.js")
+        script(type="text/javascript", src="/javascripts/gqsmeet/bootstrap.min.js")
+        script(type="text/javascript", src="/javascripts/gqsmeet/highlight.pack.js")
+        script.
+            hljs.initHighlightingOnLoad();
+        script(src="/javascripts/gqsmeet/scripts.js")
